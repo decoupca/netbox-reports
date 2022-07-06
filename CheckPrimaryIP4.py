@@ -45,3 +45,5 @@ class CheckAddress(Report):
         for entity in entities:
             if self.needs_ip(entity) is True and self.has_primary_ip4(entity) is False:
                 self.log_failure(entity, "Missing primary IPv4 address")
+            else:
+                self.log_success(entity)
