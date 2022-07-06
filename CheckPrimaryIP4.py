@@ -41,7 +41,7 @@ class CheckPrimaryIP4(Report):
         vms = VirtualMachine.objects.filter(
             status=VirtualMachineStatusChoices.STATUS_ACTIVE
         )
-        entities = devices + vms
+        entities = [x for x in devices] + [x for x in vms]
         for entity in entities:
             if self.needs_ip(entity) is True and self.has_primary_ip4(entity) is False:
                 self.log_failure(entity, "Missing primary IPv4 address")
