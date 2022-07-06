@@ -17,7 +17,7 @@ MANDATORY_IP4_ROLES = [
 ]
 
 
-class CheckAddress(Report):
+class CheckPrimaryIP4(Report):
     description = (
         "For devices that require an address, check that they have a primary IPv4 set"
     )
