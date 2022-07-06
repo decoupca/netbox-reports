@@ -2,8 +2,6 @@ from dcim.choices import DeviceStatusChoices
 from dcim.models import Device
 from extras.reports import Report
 
-from CheckPrimaryIP4 import MANDATORY_IP4_ROLES
-
 MANDATORY_PLATFORM_ROLES = [
     "firewall",
     "load-balancer",
@@ -13,7 +11,6 @@ MANDATORY_PLATFORM_ROLES = [
     "wan-accelerator",
     "wireless-controller",
 ]
-
 
 class CheckDevicePlatform(Report):
     description = "Find all devices without a platform value"
