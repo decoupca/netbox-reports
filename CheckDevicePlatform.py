@@ -17,7 +17,7 @@ class CheckDevicePlatform(Report):
 
     def test_check_device_platform(self):
         for device in Device.objects.filter(status=DeviceStatusChoices.STATUS_ACTIVE):
-            if device.device_role.slug in MANDATORY_PLATFORM_ROLES:
+            if device.device_role.slug in MANDATORY_PLATFORM_ROLES and device.primary_ip4 is not None:
                 if not device.platform:
                     self.log_failure(device, "Device is missing a platform (OS)")
                 else:
